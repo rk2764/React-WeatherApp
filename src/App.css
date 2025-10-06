@@ -1,0 +1,276 @@
+/* Main Layout */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;  /* push content from top */
+  min-height: 100vh;
+  width: 100%;
+  margin: 0;
+  padding: 40px 20px;
+  background: linear-gradient(135deg, #74ebd5, #9face6);
+  background-attachment: fixed;  /* ✅ cover whole screen */
+  background-size: cover;
+  background-repeat: no-repeat;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+  box-sizing: border-box;
+}
+
+body{
+  margin: 0px;
+  padding: 0px;
+}
+/* Search Bar Layout */
+.input-container {
+  display: flex;
+  align-items: center;
+  background: #ffffff;
+  padding: 10px 16px;
+  border-radius: 30px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
+  transition: box-shadow 0.3s ease;
+  margin-bottom: 25px;
+  width: 320px;
+  max-width: 100%;
+}
+
+.input-container:focus-within {
+  box-shadow: 0px 4px 16px rgba(0, 123, 255, 0.35);
+}
+
+.cityInput {
+  border: none;
+  outline: none;
+  font-size: 16px;
+  padding: 8px 10px;
+  flex: 1;
+  background: transparent;
+  color: #333;
+}
+
+.cityInput::placeholder {
+  color: #999;
+}
+
+.search-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  margin-left: 12px;
+  color: #666;
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.search-icon:hover {
+  color: #007bff;
+  transform: scale(1.15);
+}
+
+/* Weather Details Card Layout */
+.weather-card {
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 0px 6px 16px rgba(0, 0, 0, 0.15);
+  text-align: center;
+  width: 100%;
+  max-width: 280px;   /* ✅ smaller card */
+  animation: fadeIn 0.6s ease-in-out;
+  margin: 0 auto;
+}
+
+/* Weather Image (Main Icon) */
+.image img {
+  width: 90px;
+  height: 90px;
+  background: none;
+  border-radius: 0;
+  box-shadow: none;
+  transition: transform 0.3s ease;
+}
+
+.image img:hover {
+  transform: scale(1.08);
+}
+
+/* Text Styling */
+.temp {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-top: 20px;
+  color: #2d3436;
+}
+
+.location {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-top: 10px;
+  color: #007bff;
+}
+
+.country {
+  font-size: 1rem;
+  margin-top: 6px;
+  font-weight: 500;
+  color: #555;
+}
+
+.cord {
+  font-size: 0.9rem;
+  margin-top: 12px;
+  color: #777;
+  font-style: italic;
+}
+
+/* Humidity + Wind Container */
+.data-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  gap: 12px;
+}
+
+.element {
+  flex: 1;
+  background: #f9f9f9;
+  border-radius: 16px;
+  padding: 12px 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.element:hover {
+  transform: translateY(-4px);
+  box-shadow: 0px 6px 14px rgba(0, 0, 0, 0.15);
+}
+
+/* Small Icons (Humidity & Wind) */
+.icon {
+  width: 28px;
+  height: 28px;
+  margin-bottom: 6px;
+  background: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  object-fit: contain;
+  filter: drop-shadow(0px 2px 2px rgba(0,0,0,0.2));
+}
+
+.data {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.humidity-percentage,
+.wind-percentage {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #2d3436;
+}
+
+.humidity,
+.wind {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #555;
+  margin-top: 4px;
+}
+
+/* Footer */
+.copyright {
+  margin-top: 30px;
+  font-size: 0.85rem;
+  color: #444;
+  text-align: center;
+}
+
+.copyright span {
+  font-weight: bold;
+  color: #007bff;
+}
+
+/* Smooth fade animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Status Messages */
+.loading-message,
+.error-message,
+.city-not-found {
+  margin-top: 15px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+.loading-message {
+  color: #007bff;
+}
+
+.error-message {
+  color: #e74c3c;
+}
+
+.city-not-found {
+  color: #d63031;
+}
+
+/* 🔹 Responsive Design */
+@media (max-width: 768px) {
+  .container {
+    padding: 20px 10px;
+  }
+
+  .input-container {
+    width: 100%;
+    max-width: 280px;
+  }
+
+  .weather-card {
+    max-width: 240px;
+    padding: 16px;
+  }
+
+  .temp {
+    font-size: 2rem;
+  }
+
+  .location {
+    font-size: 1.1rem;
+  }
+
+  .country {
+    font-size: 0.9rem;
+  }
+
+  .data-container {
+    flex-direction: column;  /* ✅ stack humidity & wind */
+    gap: 10px;
+  }
+
+  .element {
+    padding: 10px;
+  }
+
+  .icon {
+    width: 24px;
+    height: 24px;
+  }
+
+  .humidity-percentage,
+  .wind-percentage {
+    font-size: 1rem;
+  }
+}
