@@ -10,7 +10,7 @@ import rain from "./assets/rain.png";
 import snows from "./assets/snowy.png";
 
 const App = () => {
-  const API_KEY = `7ea45190cbaf6740ab3bcc65a8113115`;
+  const API_KEY = import.meta.env.VITE_WEATHER_API_KEY;
 
   const [weatherIcon, setWeatherIcon] = useState(clearsky);
   const [temp, setTemp] = useState(25);
